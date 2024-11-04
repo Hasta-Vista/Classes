@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GitHub\\\u041A\u043B\u0430\u0441\u0441\u044B\\Date\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{69CC6561-82EE-4367-B5A0-4B8C112E8FDA}|Date\\Date.vcxproj|C:\\GitHub\\\u041A\u043B\u0430\u0441\u0441\u044B\\Date\\Date\\Date.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{69CC6561-82EE-4367-B5A0-4B8C112E8FDA}|Date\\Date.vcxproj|solutionrelative:Date\\Date.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Date.cpp",
+              "DocumentMoniker": "C:\\GitHub\\\u041A\u043B\u0430\u0441\u0441\u044B\\Date\\Date\\Date.cpp",
+              "RelativeDocumentMoniker": "Date\\Date.cpp",
+              "ToolTip": "C:\\GitHub\\\u041A\u043B\u0430\u0441\u0441\u044B\\Date\\Date\\Date.cpp",
+              "RelativeToolTip": "Date\\Date.cpp",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAmwHsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-04T14:56:31.634Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
