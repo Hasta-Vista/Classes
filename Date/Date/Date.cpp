@@ -77,11 +77,9 @@ public:
     int GetDay() const {
         return day;
     }
-
     int GetMonth() const {
         return month;
     }
-
     int GetYear() const {
         return year;
     }
