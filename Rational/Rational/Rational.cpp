@@ -5,7 +5,7 @@ class Rational {
 private:
     int numerator, denominator;
     void Reduce() {
-        int nod = std::gcd(numerator, denominator);
+        int nod = gcd(numerator, denominator);
         numerator /= nod;
         denominator /= nod;
         if (denominator < 0) {
@@ -53,48 +53,87 @@ public:
         Reduce();
         return *this;
     }
-    Rational operator + (const Rational& other) {
-        numerator = numerator * other.denominator + other.numerator * denominator;
-        denominator *= other.denominator;
-        Rational result(numerator, denominator);
-        Reduce();
-        return result;
+    Rational operator + (const Rational& other) const {
+        int num = numerator * other.denominator + other.numerator* denominator;
+        int den = denominator * other.denominator;
+        return Rational(num, den);
     }
-    Rational operator - (const Rational& other) {
-        numerator = numerator * other.denominator - other.numerator * denominator;
-        denominator *= other.denominator;
-        Rational result(numerator, denominator);
-        Reduce();
-        return result;
+    Rational operator - (const Rational& other) const {
+        int num = numerator * other.denominator - other.numerator * denominator;
+        int den = denominator * other.denominator;
+        return Rational(num, den);
     }
-    Rational operator * (const Rational& other) {
-        numerator *= other.numerator;
-        denominator *= other.denominator;
-        Rational result(numerator, denominator);
-        Reduce();
-        return result;
+    Rational operator * (const Rational& other) const {
+        int num = numerator * other.numerator;
+        int den = denominator * other.denominator;
+        return Rational(num, den);
     }
-    Rational operator / (const Rational& other) {
-        numerator = numerator * other.denominator;
-        denominator = denominator * other.numerator;
-        Rational result(numerator, denominator);
-        Reduce();
-        return result;
+    Rational operator / (const Rational& other) const {
+        int num = numerator * other.denominator;
+        int den = denominator * other.numerator;
+        return Rational(num, den);
     }
-    friend ostream& operator << (ostream& os, const Rational& frac) {
-        os << endl << frac.Numerator() << endl;
-        os << "-" << endl << frac.Denominator();
+    Rational operator + (int value) const {
+        Rational frac(value, 1);
+        int num = numerator * frac.denominator + frac.numerator * denominator;
+        int den = denominator * frac.denominator;
+        return Rational(num, den);
+    }
+    Rational operator - (int value) const {
+        Rational frac(value, 1);
+        int num = numerator * frac.denominator - frac.numerator * denominator;
+        int den = denominator * frac.denominator;
+        return Rational(num, den);
+    }
+    Rational operator * (int value) const {
+        return Rational(numerator * value, denominator );
+    }
+    Rational operator / (int value) const {
+        return Rational(numerator, denominator * value);
+    }
+    bool operator == (const Rational& other) const {
+        return other.Numerator() == numerator && other.Denominator() == denominator;
+    }
+    bool operator != (const Rational& other) const {
+        return !(other == *this);
+    }
+    friend ostream& operator << (ostream& os, const Rational& frac)  {
+        os << frac.Numerator() << "/" << frac.Denominator();
         return os;
     }
 };
 int main()
 {
-    int numerator, denomirator;
+    int numerator, denomirator, num;
     cin >> numerator >> denomirator;
-    Rational fraction(numerator, denomirator);
+    Rational frac1(numerator, denomirator);
     cin >> numerator >> denomirator;
-    Rational fraction2(numerator, denomirator);
-    Rational fraction3 = fraction / fraction2;
-    cout << fraction3;
+    Rational frac2(numerator, denomirator);
+    cin >> num;
+    Rational frac3 = frac1 + frac2; 
+    Rational frac4 = frac1 - frac2;
+    Rational frac5 = frac1 * frac2; 
+    Rational frac6 = frac1 / frac2;
+    Rational frac7 = frac1 + num;
+    Rational frac8 = frac1 - num;
+    Rational frac9 = frac1 * num;
+    Rational frac10 = frac1 / num;
+    frac1 += frac2; 
+    frac1 -= frac2;
+    frac1 *= frac2; 
+    frac1 /= frac2; 
+    cout << "Results:" << endl;
+    cout << "frac1 + frac2 = " << frac3 << endl;
+    cout << "frac1 - frac2 = " << frac4 << endl;
+    cout << "frac1 * frac2 = " << frac5 << endl;
+    cout << "frac1 / frac2 = " << frac6 << endl;
+    cout << "frac1 + num = " << frac7 << endl;
+    cout << "frac1 - num = " << frac8 << endl;
+    cout << "frac1 * num = " << frac9 << endl;
+    cout << "frac1 / num = " << frac10 << endl;
+    cout << "frac1 += frac2 = " << frac3 << endl;
+    cout << "frac1 -= frac2 = " << frac4 << endl;
+    cout << "frac1 *= frac2 = " << frac5 << endl;
+    cout << "frac1 /= frac2 = " << frac6 << endl;
     return 0;
 }
